@@ -1,0 +1,33 @@
+gpu: True
+cpu: False
+img_num: 7
+ts_index: 4
+# neb_restart: /work/westgroup/chao/qm_calc/methanol/ts_search/ch3oh_ch3_oh/neb_output_k7.traj
+neb_restart: /work/westgroup/chao/qm_calc/methanol/ts_search/ch3oh_ch3_oh_neb_ci/neb_ci_restart.traj
+sella_output: /work/westgroup/chao/qm_calc/methanol/ts_search/ch3oh_ch3_oh_sella/sella_restart.traj
+sella_log: /work/westgroup/chao/qm_calc/methanol/ts_search/ch3oh_ch3_oh_sella/sella_relax.log
+fmax: 0.05
+calculator:
+    contorl:
+        verbosity: high
+        calculation: scf
+        disk_io: 'none'
+    system:
+        input_dft: BEEF-VDW
+        occupations: smearing
+        smearing: mv
+        degauss: 0.01
+        ecutwfc: 50
+        nosym: True
+    electrons:
+        electron_maxstep: 200
+        mixing_mode: local-TF
+pseudopotentials:
+    Cu : Cu_ONCV_PBE-1.2.upf,
+    C : C_ONCV_PBE-1.2.upf,
+    O : O_ONCV_PBE-1.2.upf,
+    H : H_ONCV_PBE-1.2.upf
+gpu_number: 4
+kpoints: !!python/tuple [5,5,1]
+restart: True
+sella_restart_path: /work/westgroup/chao/qm_calc/methanol/ts_search/ch3oh_ch3_oh_sella/sella_relax.traj
